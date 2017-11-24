@@ -14,9 +14,15 @@ import {
     Dimensions,
 
 } from 'react-native';
+import reducers from './src/reducers';
+import {Provider} from 'react-redux';
+import ReduxThunk from 'redux-thunk';
+import {createStore, applyMiddleware} from 'redux';
+
 
 import {Input, Button} from './src/component';
 import * as COLORS from './src/constants/colors';
+import LogIn from './src/Views/LogIn';
 
 
 export default class App extends Component<{}> {
@@ -27,7 +33,9 @@ export default class App extends Component<{}> {
 
   render() {
       var _scrollView: ScrollView;
+      const store = createStore(reducers);
     return (
+        <Provider store={createStore(reducers, {}, applyMiddleware(ReduxThunk))}>
         <ScrollView
             ref={(scrollView) => { _scrollView = scrollView; }}
             horizontal={true}
@@ -35,26 +43,9 @@ export default class App extends Component<{}> {
             automaticallyAdjustContentInsets={false}
             >
 
-          <View style={styles.container}>
-              <Input label="Email" placeholder = "username@email.com" />
-              <Input label="Password" placeholder = "*******" />
-              <View style={styles.btnViewContainer}>
-                  <Button
-                      title="Log In"
-                      backgroundColor={COLORS.YELLOW}
-                      width={Dimensions.get('window').width - 100}
-                  />
-
-                  <Button
-                      title="Sign Up"
-                      backgroundColor={COLORS.PINK}
-                      width={Dimensions.get('window').width/2}
-                      onPress={() => { _scrollView.scrollTo({x: Dimensions.get('window').width}); }}/>
-
-              </View>
+         <LogIn  onPress={() => { _scrollView.scrollTo({x: Dimensions.get('window').width}); }}/>
 
 
-          </View>
             <View style={styles.container}>
                 <Input label="Email" placeholder = "placeholder" />
 
@@ -64,6 +55,7 @@ export default class App extends Component<{}> {
 
 
         </ScrollView>
+        </Provider>
     );
   }
 }
@@ -77,13 +69,7 @@ const styles = StyleSheet.create({
       width : Dimensions.get('window').width
 
   },
-   btnViewContainer : {
 
-       width : Dimensions.get('window').width,
-       alignItems:'flex-end',
-
-
-    }
 
 
 });
