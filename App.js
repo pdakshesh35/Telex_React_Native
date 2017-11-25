@@ -23,6 +23,7 @@ import {createStore, applyMiddleware} from 'redux';
 import {Input, Button} from './src/component';
 import * as COLORS from './src/constants/colors';
 import LogIn from './src/Views/LogIn';
+import CameraView from './src/Views/CameraView';
 
 
 export default class App extends Component<{}> {
@@ -46,8 +47,9 @@ export default class App extends Component<{}> {
          <LogIn  onPress={() => { _scrollView.scrollTo({x: Dimensions.get('window').width}); }}/>
 
 
+
             <View style={styles.container}>
-                <Input label="Email" placeholder = "placeholder" />
+                <CameraView />
 
 
             </View>

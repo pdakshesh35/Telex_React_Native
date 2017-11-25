@@ -8,6 +8,10 @@
 		<string>OldStandard-Italic.ttf</string>
 		<string>OldStandard-Regular.ttf</string>
 	</array>
+  <key> Privacy - Camera Usage Description</key>
+  <string>camera use </string>
+  <key> Privacy - Photo Library Usage Description</key>
+  <string> photo usee </string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>

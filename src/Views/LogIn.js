@@ -27,7 +27,7 @@ class LogIn extends Component{
         return (
             <View style={styles.logInContainer}>
                 <Input label="Email" placeholder="username@email.com" onChangeText={this.onEmailChange.bind(this)}  value={this.props.email}/>
-                <Input label="Password" placeholder="*******" secureTextEntry={true} onChangeText={this.onPasswordChange.bind(this)}/>
+                <Input label="Password" placeholder="*******" secureTextEntry={true} onChangeText={this.onPasswordChange.bind(this)} value={this.props.pass}/>
                 <View style={styles.btnViewContainer}>
                     <Button
                         title="Log In"
