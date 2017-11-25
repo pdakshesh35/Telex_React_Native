@@ -9,6 +9,7 @@ class LogIn extends Component{
 
     onEmailChange(text) {
 
+
         this.props.emailChanged(text);
     }
 
@@ -17,8 +18,8 @@ class LogIn extends Component{
     }
 
     pressed() {
-        const {email} = this.props;
-        console.log({email});
+        const {email, pass} = this.props;
+        console.log({email, pass});
     }
 
 
@@ -65,7 +66,7 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => {
-        const {email, pass} = state;
+        const {email, pass} = state.auth;
     return {
 
         email: email,
